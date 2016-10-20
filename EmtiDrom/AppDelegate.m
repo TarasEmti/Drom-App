@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "TMCollectionView.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +18,17 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    TMCollectionView* picturesCollectionView = [[TMCollectionView alloc] init];
+    
+    UINavigationController* mainView = [[UINavigationController alloc] initWithRootViewController:picturesCollectionView];
+    
+    picturesCollectionView.title = [NSString stringWithFormat:@"Test Drom App"];
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
+    [self.window setRootViewController:mainView];
+    
+    [self.window makeKeyAndVisible];
     return YES;
 }
 
